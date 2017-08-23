@@ -4,6 +4,7 @@
   "description": "Copies source code from destination folder into lab folders and overlays specific lab files.",
   "author": "Dan Wahlin",
   "scripts": {
+    "clean": "git clean -dxf --exclude=*.iml && npm cache verify",
     "setup": "node setup.js"
   },
   "dependencies": {

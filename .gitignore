@@ -4,9 +4,9 @@ obj
 packages
 *.mdf
 *.ldf
-node_modules
-npm-debug.log
-.idea
+**/node_modules
+**/npm-debug.log
+**/.idea
 .vs
 .DS_Store
 **/*.iml
