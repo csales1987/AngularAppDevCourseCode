@@ -6,56 +6,21 @@
                     <thead>
                         <tr>
                             <th>&nbsp;</th>
-                    <!--
-
-                        TODO 1: Use Event Binding
-
-                        Add an event binding to the First Name <th> below to bind the click event 
-                        to a sort() function defined in the component code. Pass a value 
-                        of 'firstName' into the sort() function that the click event binds to.
-                        
-                        OPTIONAL: If time permits, bind the click event binding 
-                        to the sort() function for the remaining <th> elements. 
-                        Here's the respective values that should be passed into sort() 
-                        for each <th> element:
-                            
-                        firstName
-                        lastName
-                        address
-                        city
-                        state.name
-                        orderTotal
-
-                    -->
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Address</th>
-                            <th>City</th>
-                            <th>State</th>
-                            <th>Order Total</th>
+                            <th cm-sort-by="firstName" (sorted)="sort($event)">First Name</th>
+                            <th cm-sort-by="lastName" (sorted)="sort($event)">Last Name</th>
+                            <th cm-sort-by="address" (sorted)="sort($event)">Address</th>
+                            <th cm-sort-by="city" (sorted)="sort($event)">City</th>
+                            <th cm-sort-by="state.name" (sorted)="sort($event)">State</th>
+                            <!-- Or you can do this directly rather than using sort-by directive -->
+                            <th (click)="sort('orderTotal')">Order Total</th>
                             <th>&nbsp;</th>
                         </tr>
                     </thead>
                     <tbody>
-                        
-                    <!--
-
-                        TODO 2: Use ngFor to Iterate Through Customers
-
-                        1. Add an ngFor directive to the <tr> element immediately 
-                           below that iterates through the array of customers 
-                           exposed by the component class. Name the ngFor variable "customer".
-
-                        2. Add the following code immediately AFTER the 
-                           customer property in the ngFor (inside of the quotes):
-                        
-                            ;trackBy:trackbyService.customer
-
-                    -->                        
-                        <tr>
+                        <tr *ngFor="let customer of customers;trackBy:trackbyService.customer">
                             <td><img src="images/{{ customer.gender | lowercase }}.png"
-                                    class="grid-image" alt="Customer Image" /></td>
-                            <td><a [routerLink]="['/customers',customer.id,'details']">{{ customer.firstName  | capitalize }}</a></td>
+                                     class="grid-image" alt="Customer Image" /></td>
+                            <td><a [routerLink]="['/customers',customer.id,'details']">{{ customer.firstName | capitalize }}</a></td>
                             <td>{{ customer.lastName | capitalize }}</td>
                             <td>{{ customer.address }}</td>
                             <td>{{ customer.city | trim }}</td>
@@ -63,16 +28,7 @@
                             <td>{{ customer.orderTotal | currency:'USD':true }}</td>
                             <td><a [routerLink]="['/customers',customer.id,'orders']">View Orders</a></td>
                         </tr>
-                    <!--
-
-                        TODO 3: Use the ngIf Directive
-
-                        Add an ngIf directive to the <tr> below that shows the row
-                        if there are no customers. In other words, if customers.length is 0
-                        then show the row.
-
-                    -->
-                        <tr>
+                        <tr *ngIf="!customers.length">
                             <td>&nbsp;</td>
                             <td colspan="7">No Records Found</td>
                         </tr>
