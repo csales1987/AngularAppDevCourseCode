@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-component',
+  selector: 'app-root',
   template: `
     <h1>Angular Pipes</h1>
     <br />
@@ -13,7 +13,7 @@ import { Component, OnInit } from '@angular/core';
     <br />
     Percentage: {{ percentage | percent:'2.2' }}
     <br />
-    Currency: {{ price | currency:'USD':true }}
+    Currency: {{ price | currency:'USD':'symbol' }}
     <br />
     Custom Pipe (DashReplacerPipe): {{ id | dashreplacer }}
   `

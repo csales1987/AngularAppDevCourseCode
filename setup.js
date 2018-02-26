@@ -64,9 +64,7 @@ downloadAndExtractProjects(function(err) {
     //     overlayFiles(sampleFolder);
     // });
 
-    //Lab 1
-    copyFolder('./Angular-HelloWorld-master', './Labs/Getting Started with Angular/Begin');
-    overlayFiles('./Labs/Getting Started with Angular');
+    //Lab 1 (Angular CLI - instructor-led)
 
     //Lab 2 (TypeScript - instructor-led)
 
@@ -89,8 +87,8 @@ downloadAndExtractProjects(function(err) {
     overlayFiles('./Labs/Component Properties and Angular Directives');
 
     //Lab 7
-    copyFolder('./Angular-JumpStart-master', './Labs/Services Providers and Http/Begin');
-    overlayFiles('./Labs/Services Providers and Http');
+    copyFolder('./Angular-JumpStart-master', './Labs/Services Providers and HttpClient/Begin');
+    overlayFiles('./Labs/Services Providers and HttpClient');
 
     //Lab 8
     copyFolder('./Angular-JumpStart-master', './Labs/Working with Routing/Begin');
